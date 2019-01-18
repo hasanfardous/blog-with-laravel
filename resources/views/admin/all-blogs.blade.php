@@ -34,10 +34,10 @@
                     <th>Title</th>
                     <th>Action</th>
                 </tr>
-
+                <?php $count=1;?>
                 @foreach($blogs as $blog)
                 <tr>
-                    <td>1</td>
+                    <td>{{ $count++ }}</td>
                     <td>{{ $blog->title }}</td>
                     <td>
                         <a href="/admin/blog/edit/{{ $blog->id }}" class="btn btn-success">Edit</a>

@@ -44,12 +44,12 @@ Route::post('/admin/all-blogs', function(){
     
     DB::table('all_blogs')->insert(array(
         'title' => $title,
-        'content' => $content
+        'content' => $content,
+        'created_at' => date('Y-m-d H:i:s'),
+        'updated_at' => date('Y-m-d H:i:s'),
     ));
 
-    Session::flash('blog-posted', 'Post has been created successfully!');
-
-    return redirect('/admin/all-blogs');
+    return redirect('/admin/all-blogs')->with('blog-posted', 'Post has been created successfully!');
 });
 
 Route::get('/admin/blog/edit/{id}', function($id){
