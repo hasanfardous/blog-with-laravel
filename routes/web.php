@@ -76,3 +76,16 @@ Route::get('/admin/blog/delete/{id}', function($id){
 
     return redirect()->route('all_blogs_route')->with('post-deleted', 'The post has been deleted successfully!');
 });
+
+
+// Structured system
+
+Route::get('/admin/categorys', 'Categorys@index')->middleware('auth');
+Route::get('/admin/categorys/create', 'Categorys@create')->middleware('auth');
+Route::post('/admin/categorys', 'Categorys@store')->middleware('auth');
+
+
+Route::get('/admin/events', 'Events@index');
+Route::get('/admin/events/create', 'Events@create');
+Route::post('/admin/events', 'Events@store');
+Route::get('/admin/events/edit/{id}', 'Events@edit');
